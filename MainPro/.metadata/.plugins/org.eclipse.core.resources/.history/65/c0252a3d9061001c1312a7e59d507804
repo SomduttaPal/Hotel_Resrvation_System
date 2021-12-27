@@ -1,0 +1,10 @@
+package com.persistent.hrs.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.persistent.hrs.model.User;
+
+
+public interface Repository extends JpaRepository<User, String> {
+
+}

@@ -1,0 +1,5 @@
+package com.persistent.hrs.repository;
+
+public interface BookingRepo {
+
+}

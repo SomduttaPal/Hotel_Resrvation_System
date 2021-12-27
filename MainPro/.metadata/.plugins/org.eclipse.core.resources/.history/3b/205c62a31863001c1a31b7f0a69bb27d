@@ -1,0 +1,5 @@
+package com.persistent.hrs.model;
+
+public class Room {
+
+}

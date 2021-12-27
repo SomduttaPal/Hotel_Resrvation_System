@@ -1,0 +1,17 @@
+package com.persistent.hrs.repository;
+
+import java.util.Collection;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.persistent.hrs.model.Room;
+
+@Repository
+public interface RoomRepo extends JpaRepository<Room, Long> {
+
+	@Query(value = "SELECT * FROM ROOM r WHERE r.is_booked = 0",nativeQuery = true)
+	Collection<Room> findAllAvailableRooms();
+	
+}

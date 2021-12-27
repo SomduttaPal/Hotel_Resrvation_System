@@ -1,0 +1,56 @@
+package com.persistent.hrs.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.persistent.hrs.exception.ResourceNotFoundException;
+import com.persistent.hrs.model.User;
+import com.persistent.hrs.repository.Repo;
+
+@CrossOrigin(origins = "http://localhost:3000/")
+@RestController
+@RequestMapping("/api/v1/")
+public class GenController {
+	
+	@Autowired
+	private Repo repo;
+	
+	@GetMapping("/users")
+	public List<User> getAllUser() {
+		return repo.findAll();
+	}
+	
+	@GetMapping("/users/{emailid}")
+	public ResponseEntity<User> getUser(@PathVariable("emailid") String emailid) {
+		//User user = repo.findById(emailid).orElseThrow(() -> new ResourceNotFoundException("User Not Exist"));
+		//return ResponseEntity.ok(user);
+	}
+	
+	@PostMapping("/users")
+	public User addUser(@RequestBody User user) {
+		return repo.save(user);
+	}
+	
+	@PutMapping("/users/{emailid}")
+	public ResponseEntity<User> updateUser(@PathVariable String emailid, @RequestBody User userDetails) {
+		User user = repo.findById(emailid).orElseThrow(() -> new ResourceNotFoundException("User Not Exist"));
+		user.setFirstName(userDetails.getFirstName());
+		user.setLastName(userDetails.getLastName());
+		user.setAadhar(userDetails.getAadhar());
+		user.setPhoneNumber(userDetails.getPhoneNumber());
+		user.setPassword(userDetails.getPassword());
+		User updatedUser = repo.save(user);
+		return ResponseEntity.ok(updatedUser);
+	}
+
+}
