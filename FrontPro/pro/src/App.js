@@ -25,6 +25,8 @@ import { RoomListComponent } from './components/OwnerComponents/RoomListComponen
 import { UpdateRoomComponent } from './components/OwnerComponents/UpdateRoomComponent';
 import { FilterRoomsComponent } from './components/FilterRoomsComponent';
 import { FooterComponent } from './components/FotterComponent';
+import { AboutUsComponent } from './components/AboutUsComponent';
+import { ContactUsComponent } from './components/ContactUsComponent';
 
 function App() {
   return <div>
@@ -41,6 +43,8 @@ function App() {
         <Route path="/hotellist" component={HotelListComponentWi}></Route>
         <Route path="/mybooking" component={UserBookingHistory}></Route>
         <Route path="/roomsbyfilter" component={FilterRoomsComponent}></Route>
+        <Route path="/aboutus" component={AboutUsComponent}></Route>
+        <Route path="/contactus" component={ContactUsComponent}></Route>
 
         {/* Owner Path */}
         <Route path="/loginowner" component={LoginFormOwner}></Route>

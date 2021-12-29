@@ -98,13 +98,13 @@ export class AddRoomComponent extends React.Component{
                 <h4>Number Of Bed</h4>
                 <div data-toggle="buttons" onChange={this.changeNumberOfBeds.bind(this)}>
                     <label class="btn btn-success btn-lg ">
-                        <input type="radio" value="Yes" name="noofbed" /> <b>1</b>
+                        <input type="radio" value="1" name="noofbed" /> <b>1</b>
                     </label>&nbsp;&nbsp;&nbsp;
                     <label class="btn btn-warning btn-lg">       
-                        <input type="radio" value="No" name="noofbed" /> <b>2</b>
+                        <input type="radio" value="2" name="noofbed" /> <b>2</b>
                     </label>&nbsp;&nbsp;&nbsp;
                     <label class="btn btn-danger btn-lg">       
-                        <input type="radio" value="No" name="noofbed" /> <b>3</b>
+                        <input type="radio" value="3" name="noofbed" /> <b>3</b>
                     </label>
   	            </div>
                 <br/>

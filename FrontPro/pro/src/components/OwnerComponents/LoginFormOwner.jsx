@@ -13,7 +13,7 @@ export class LoginFormOwner extends React.Component{
         }
         this.state = {
             emailId: '',
-            password: '',
+            password: '-1',
             dbemailId: '',
             dbpassword: '',
             loggedIn

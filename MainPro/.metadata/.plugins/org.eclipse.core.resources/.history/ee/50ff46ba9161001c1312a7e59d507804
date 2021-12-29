@@ -1,5 +1,0 @@
-package com.persistent.hrs.repository;
-
-public interface Repo {
-
-}

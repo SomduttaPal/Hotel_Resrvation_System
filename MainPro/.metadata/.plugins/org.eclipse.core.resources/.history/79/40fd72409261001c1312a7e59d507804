@@ -1,5 +1,0 @@
-package com.persistent.hrs.exception;
-
-public class ResourceNotFoundException {
-
-}

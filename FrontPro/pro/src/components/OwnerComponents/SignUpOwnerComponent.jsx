@@ -7,13 +7,13 @@ export class SignUpOwnerComponent extends React.Component{
     constructor() {
         super()
         this.state = {
-            hotelName: '',
-            ownerName: '',
-            address: '',
-            city:'',
-            phoneNumber: '',
-            emailId: '',
-            password: ''
+            hotelName: '-1',
+            ownerName: '-1',
+            address: '-1',
+            city:'-1',
+            phoneNumber: '-1',
+            emailId: '-1',
+            password: '-1'
         }
     }
 
@@ -47,12 +47,17 @@ export class SignUpOwnerComponent extends React.Component{
     
     saveOwner = (e) => {
         e.preventDefault();
-        let owner = {hotelName:this.state.hotelName, ownerName:this.state.ownerName, address:this.state.address, 
-        city:this.state.city, phoneNumber:this.state.phoneNumber, emailId:this.state.emailId, password:this.state.password};
-        console.log(JSON.stringify(owner));
-        Service.createOwner(owner).then(res => {
-            this.props.history.push("/loginowner");
-        });
+        if(this.state.hotelName != '-1' && this.state.ownerName != '-1' && this.state.address != '-1' && this.state.city != '-1' && this.state.phoneNumber != '-1' && this.state.emailId != '-1' && this.state.password != '-1') {
+            let owner = {hotelName:this.state.hotelName, ownerName:this.state.ownerName, address:this.state.address, 
+            city:this.state.city, phoneNumber:this.state.phoneNumber, emailId:this.state.emailId, password:this.state.password};
+            console.log(JSON.stringify(owner));
+            Service.createOwner(owner).then(res => {
+                this.props.history.push("/loginowner");
+            });
+        }
+        else {
+            alert("Please Enter Valid Data")
+        }
     }
 
     render() {
@@ -68,13 +73,13 @@ export class SignUpOwnerComponent extends React.Component{
                 <div className="card col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                     <br/>
                     <form>
-                    <input className="btn-default btn-lg" placeholder="hotelName" name="hotelName" value={this.state.hotelName} onChange={this.changeHotelName.bind(this)}></input> <br/><br/>
-                    <input className="btn-default btn-lg" placeholder="ownerName" name="ownerName" value={this.state.ownerName} onChange={this.changeOwnerName.bind(this)}></input> <br/><br/>
-                    <input className="btn-default btn-lg" placeholder="address" name="address" value={this.state.address} onChange={this.changeAddress.bind(this)}></input> <br/><br/>
-                    <input className="btn-default btn-lg" placeholder="city" name="city" value={this.state.city} onChange={this.changeCity.bind(this)}></input> <br/><br/>
-                    <input className="btn-default btn-lg" placeholder="Phone Number" name="phonenumber" value={this.state.phoneNumber} onChange={this.changePhoneNumber.bind(this)}></input> <br/><br/>
-                    <input className="btn-default btn-lg" placeholder="EmailId" name="emailid" value={this.state.emailId} onChange={this.changeEmailId.bind(this)}></input> <br/><br/>
-                    <input type="password" className="btn-default btn-lg" placeholder="Password" name="password" value={this.state.password} onChange={this.changePassword.bind(this)}></input> <br/><br/>
+                    <input className="btn-default btn-lg" placeholder="hotelName" name="hotelName" onChange={this.changeHotelName.bind(this)}></input> <br/><br/>
+                    <input className="btn-default btn-lg" placeholder="ownerName" name="ownerName" onChange={this.changeOwnerName.bind(this)}></input> <br/><br/>
+                    <input className="btn-default btn-lg" placeholder="address" name="address" onChange={this.changeAddress.bind(this)}></input> <br/><br/>
+                    <input className="btn-default btn-lg" placeholder="city" name="city"  onChange={this.changeCity.bind(this)}></input> <br/><br/>
+                    <input className="btn-default btn-lg" placeholder="Phone Number" name="phonenumber" onChange={this.changePhoneNumber.bind(this)}></input> <br/><br/>
+                    <input className="btn-default btn-lg" placeholder="EmailId" name="emailid"  onChange={this.changeEmailId.bind(this)}></input> <br/><br/>
+                    <input type="password" className="btn-default btn-lg" placeholder="Password" name="password" onChange={this.changePassword.bind(this)}></input> <br/><br/>
                     <button className="btn-dark btn-lg" onClick={this.saveOwner.bind(this)}>Save</button>
                     </form>
                     <br/>

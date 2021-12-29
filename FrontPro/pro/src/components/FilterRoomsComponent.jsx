@@ -42,7 +42,7 @@ export class FilterRoomsComponent extends React.Component {
     }
 
     showOneBedRooms() {
-        Service.getOneBedRoom.then((res)=>{
+        Service.getOneBedRoom().then((res)=>{
             this.setState({hotels:res.data})
         })
     }

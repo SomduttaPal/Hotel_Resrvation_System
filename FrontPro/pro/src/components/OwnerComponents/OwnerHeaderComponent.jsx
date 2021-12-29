@@ -28,8 +28,8 @@ export class OwnerHeaderComponent extends React.Component {
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="/homeowner">Home</a>
-                    <a class="nav-item nav-link" href="#">About Us</a>
-                    <a class="nav-item nav-link" href="#">Contact Us</a>
+                    <a class="nav-item nav-link" href="/aboutus">About Us</a>
+                    <a class="nav-item nav-link" href="/contactus">Contact Us</a>
                     <a class="nav-item nav-link" href="/ownerlogout">Logout</a>
                     </div>
                 </div>

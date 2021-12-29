@@ -64,7 +64,7 @@ export class UserBookingHistory extends React.Component {
             }
             </tbody>
         </table>
-        <button className="btn-dark btn-lg" onClick={() => {this.props.history.push(`/homeuser/${this.state.emailId}`)}}>Back</button>
+        <button className="btn-dark btn-lg" onClick={() => {this.props.history.push(`/homeuser/${this.state.emailId}`)}}>Back</button> <br/><br/><br/>
         </div>
     }
 }
